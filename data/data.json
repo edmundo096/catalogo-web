@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Acción",
+    "content": [
+      { "name": "Item 1", "content_html": "<h3></h3><p></p><img src=\"\" alt=\"\">" },
+      { "name": "Item 3", "content_html": "Contenido." }
+    ]
+  },
+  {
+    "name": "Drama",
+    "content": [
+      { "name": "Item 1", "content_html": "Contenido." },
+      { "name": "Item 2", "content_html": "Contenido." },
+      { "name": "Item 3", "content_html": "Contenido." },
+      { "name": "Item 4", "content_html": "Contenido." }
+    ]
+  }
+]

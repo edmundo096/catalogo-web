@@ -1,0 +1,97 @@
+
+// http://www.spritecow.com/
+
+.sprite {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center center;
+  &.hut {
+    background: url('../images/restaurants/PizzaHut_logo-219x286.png') no-repeat -29px -67px;
+    //width: 161px;
+    //height: 152px;
+  }
+  &.starbucks {
+    background: url('../images/restaurants/restaurantes2.gif') no-repeat -24px 0;
+    //width: 434px;
+    //height: 434px;
+  }
+  &.tacobell {
+    background: url('../images/restaurants/restaurantes2.gif') no-repeat -591px -43px;
+    //width: 423px;
+    //height: 365px;
+  }
+  &.pan {
+    background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+    //width: 447px;
+    //height: 366px;
+  }
+  &.pan2 {
+    background: url('../images/restaurants/restaurantes2.gif') no-repeat -1718px -89px;
+    //width: 361px;
+    //height: 357px;
+  }
+
+  //.manzana {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //.macdonalds {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //.dd {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //.unk {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //.dq {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //.chilis {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  &.dominos {
+    background: url('../images/restaurants/restaurantes2.gif') no-repeat -1131px -1247px;
+    width: 426px;
+    height: 424px;
+  }
+  //.sprite {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //
+  //.sprite {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //.sprite {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //
+  //.sprite {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+  //.sprite {
+  //  background: url('../images/restaurants/restaurantes2.gif') no-repeat -1128px -45px;
+  //  width: 447px;
+  //  height: 366px;
+  //}
+}

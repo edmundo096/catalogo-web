@@ -1,0 +1,335 @@
+// Debug vars
+$debug:         false;
+$draw-borders:  $debug;
+
+//noinspection CssUnknownTarget
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+
+// Small screen / tablet
+$screen-sm-min:              768px;
+// Medium screen / desktop
+$screen-md-min:              992px;
+// Large screen / wide desktop
+$screen-lg-min:              1200px;
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1);
+$screen-sm-max:              ($screen-md-min - 1);
+$screen-md-max:              ($screen-lg-min - 1);
+
+
+// ngCloak for hidding raw/not processed elements.
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+// MISC: -----------------------------------------------------------------------------------------------------------
+$footer-max-height: 120px;
+
+html {
+  // For absolute footer.
+  min-height: 100%;
+  position: relative;
+}
+body {
+  // For absolute footer.
+  padding-bottom: $footer-max-height;
+
+  font-family: 'Open Sans', 'Lato',sans-serif;
+}
+
+.fa-btn {
+  margin-right: 6px;
+}
+
+// Footer: --------------------------------------------------------------------------------------------------------
+/* Set the fixed height of the footer here */
+#footer {
+  // Set the footer to the bottom, regardless if the content flow does not reach the bottom.
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  // Sets a variable height to avoid overflow.
+  min-height: 60px;
+  max-height: $footer-max-height;
+
+  background-color: #0e1212;
+  padding-top:20px;
+  padding-bottom:20px;
+
+  // Remove bottom margin from p.
+  p { margin-bottom: 0; }
+}
+
+// Sections: --------------------------------------------------------------------------------------------------------
+// Debug borders
+@if ($draw-borders) {
+  section.cart-summary,
+  section.search-area,
+  aside.ads,
+  section.results,
+  .results-items,
+  .results-nav {
+    border: medium solid #269abc;
+  }
+}
+
+// Cart summary
+section.cart-summary {
+  @media (max-width: $screen-md-max) {
+    border: 0 solid rgba(128, 128, 128, 0.43);
+    border-bottom-width: 2px;
+  }
+}
+// Pulls the cart to the right (float to right) on LG.
+@media (min-width: $screen-lg-min) {
+  .pull-right-lg {
+    float: right;
+  }
+}
+
+// Ads
+aside.ads {
+  //background-color: rgba(38, 154, 188, 0.41);
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: rgba(128, 128, 128, 0.43);
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  transition: height 1s;
+  height: 24em;
+  &.compressed {
+    height: 10em;
+  }
+
+  h1 {
+    position: absolute;
+  }
+
+  .img-responsive {
+    max-height: 100%;
+  }
+}
+
+// Results
+section.results {
+
+  // Override the separator and space of it.
+  .breadcrumb > li + li:before {
+    content: " /";
+  }
+}
+.results-nav .btn {
+  // To vertically fill as the tabs do (due their 10px padding instead of 6px of buttons).
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+// --------------------------------------------------------------------------------------------------------
+
+// Sidebar menu section (commented, not used)
+//@media (min-width: 768px) {
+//  .sidebar-nav .navbar .navbar-collapse {
+//    padding: 0;
+//    max-height: none;
+//  }
+//  .sidebar-nav .navbar ul {
+//    float: none;
+//  }
+//  .sidebar-nav .navbar ul:not {
+//    display: block;
+//  }
+//  .sidebar-nav .navbar li {
+//    float: none;
+//    display: block;
+//  }
+//  .sidebar-nav .navbar li a {
+//    padding-top: 12px;
+//    padding-bottom: 12px;
+//  }
+//}
+
+@function calculate-width-percentage($n-columns, $separation-ptc) {
+  $n-separations:         $n-columns - 1;
+  $total-separation-ptc:  $separation-ptc * $n-separations;
+  $total-columns-ptc:     100% - $total-separation-ptc;
+  @return $total-columns-ptc / $n-columns;
+}
+// Food Category items
+.cat-item {
+  // 1:1 aspect ratio hack (using padding-bottom = width).
+  position: relative;
+  a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: lightskyblue;
+    text-align: center;
+    //position: relative;
+    // Flex: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    span {
+      //align-self: center; // Used when direction: row
+      display: block;
+      // Overwrite any margin and font-size of the icons CSS.
+      &:before {
+        margin: 0 0 0 0;
+        font-size: 450%;
+      }
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 1em;
+      //align-self: flex-end;
+      //position: absolute;
+      //bottom: 10%;
+      //left: 50%;
+      //right: 50%;
+    }
+    // For XXS
+    @media (max-width: ($screen-xs-max / 2) + 40px) {
+      span:before { font-size: 300%; }
+      h1 { margin-top: -10%; font-size: 0.8em; }
+    }
+
+    text-decoration: none;
+    color: #fff;
+    &:hover {
+      background-color: lighten(rgb(230, 88, 53), 20%);
+      color: lighten(#fff, 10%); // redundant lighten white...
+    }
+    &:active {
+      background-color: darken(rgb(230, 88, 53), 1%);
+      transition: all 0.05s ease-out;
+      top: -2.5%;
+      bottom: -2.5%;
+      left: -2.5%;
+      right: -2.5%;
+    }
+  }
+  //height: 100px;
+
+  float: left;
+  background-color: rgba(230, 88, 53, 0.71);
+
+  // Windows 8 like "Intro transition" (Apply to only those inside the categories container).
+  #content-categories & {
+    transition-property: opacity, transform;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    &.ng-enter {
+      opacity: 0.0;
+      transform: scale(0.8, 0.8) translateX(20px);
+    }
+  }
+
+  $separation-pct: 5%;
+  margin-right:   $separation-pct;
+  margin-bottom:  $separation-pct;
+
+  // 3 columns for XS.
+  @media (max-width: $screen-xs-max) {
+    $width: calculate-width-percentage(3, $separation-pct); //30%;
+    width: $width;
+    padding-bottom: $width;
+
+    &:nth-child(3n+2) { transition-delay: 0.03s; }
+    &:nth-child(3n) {   transition-delay: 0.06s;
+      margin-right: 0;  // Last one will not have right margin separation.
+      @if($debug) { background-color: mediumpurple; }
+    }
+  }
+
+  // 4 columns fro SM and MD. Combining both min-width and max-width queries.
+  @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+    $width: calculate-width-percentage(4, $separation-pct); //21.25%;  // (100% - 15%) / 4
+    width: $width;
+    padding-bottom: $width;
+
+    &:nth-child(4n+2) { transition-delay: 0.03s; }
+    &:nth-child(4n+3) { transition-delay: 0.06s; }
+    &:nth-child(4n) {   transition-delay: 0.09s;
+      margin-right: 0;
+      @if($debug) { background-color: orange; }
+    }
+  }
+  // 5 columns for LG.
+  @media (min-width: $screen-lg-min) {
+    $width: calculate-width-percentage(5, $separation-pct); //16%;     // (100 % - 20 %) / 5
+    width: $width;
+    padding-bottom: $width;
+
+    &:nth-child(5n+2) { transition-delay: 0.03s; }
+    &:nth-child(5n+3) { transition-delay: 0.06s; }
+    &:nth-child(5n+4) { transition-delay: 0.09s; }
+    &:nth-child(5n) {   transition-delay: 0.12s;
+      margin-right: 0;
+      @if($debug) { background-color: aquamarine; }
+    }
+  }
+
+}
+
+// Cart and Menu
+
+.js-qty, .ajaxcart__qty {
+  position: relative;
+  /*margin-bottom: 1em;*/
+  max-width: 70px;
+  /*min-width: 75px;*/
+  width: 75px;
+  overflow: visible;
+  backface-visibility: hidden;
+}
+.js-qty__adjust, .ajaxcart__qty-adjust {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  top: -1px;
+  bottom: -1px;
+  border: 0 none;
+  background: none;
+  text-align: center;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.js-qty__adjust--minus, .ajaxcart__qty--minus {
+  left: 0;
+}
+.js-qty__adjust--plus, .ajaxcart__qty--plus {
+  right: 0;
+}
+.js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
+  /*background: -webkit-linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
+  /*background: linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
+  background-color: #ebebeb;
+  font-weight: bold;
+}
+.js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 5px 25px;
+  margin: 0;
+  border-color: #8D8F93;
+}
+
+#content-menu .img-responsive {
+  display: block;
+  max-width: 120px;
+  height: auto;
+  max-height: 80px;
+
+  margin-right: 8px;
+}
