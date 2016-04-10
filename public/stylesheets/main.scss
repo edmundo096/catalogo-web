@@ -65,92 +65,12 @@ body {
 // Sections: --------------------------------------------------------------------------------------------------------
 // Debug borders
 @if ($draw-borders) {
-  section.cart-summary,
-  section.search-area,
-  aside.ads,
-  section.results,
-  .results-items,
-  .results-nav {
-    border: medium solid #269abc;
+  div {
+    border: 1px solid #269abc;
   }
 }
-
-// Cart summary
-section.cart-summary {
-  @media (max-width: $screen-md-max) {
-    border: 0 solid rgba(128, 128, 128, 0.43);
-    border-bottom-width: 2px;
-  }
-}
-// Pulls the cart to the right (float to right) on LG.
-@media (min-width: $screen-lg-min) {
-  .pull-right-lg {
-    float: right;
-  }
-}
-
-// Ads
-aside.ads {
-  //background-color: rgba(38, 154, 188, 0.41);
-  border-width: 2px 0;
-  border-style: solid;
-  border-color: rgba(128, 128, 128, 0.43);
-  padding-top: 8px;
-  padding-bottom: 8px;
-
-  transition: height 1s;
-  height: 24em;
-  &.compressed {
-    height: 10em;
-  }
-
-  h1 {
-    position: absolute;
-  }
-
-  .img-responsive {
-    max-height: 100%;
-  }
-}
-
-// Results
-section.results {
-
-  // Override the separator and space of it.
-  .breadcrumb > li + li:before {
-    content: " /";
-  }
-}
-.results-nav .btn {
-  // To vertically fill as the tabs do (due their 10px padding instead of 6px of buttons).
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 
 // --------------------------------------------------------------------------------------------------------
-
-// Sidebar menu section (commented, not used)
-//@media (min-width: 768px) {
-//  .sidebar-nav .navbar .navbar-collapse {
-//    padding: 0;
-//    max-height: none;
-//  }
-//  .sidebar-nav .navbar ul {
-//    float: none;
-//  }
-//  .sidebar-nav .navbar ul:not {
-//    display: block;
-//  }
-//  .sidebar-nav .navbar li {
-//    float: none;
-//    display: block;
-//  }
-//  .sidebar-nav .navbar li a {
-//    padding-top: 12px;
-//    padding-bottom: 12px;
-//  }
-//}
 
 @function calculate-width-percentage($n-columns, $separation-ptc) {
   $n-separations:         $n-columns - 1;
@@ -158,7 +78,7 @@ section.results {
   $total-columns-ptc:     100% - $total-separation-ptc;
   @return $total-columns-ptc / $n-columns;
 }
-// Food Category items
+// Original Category items
 .cat-item {
   // 1:1 aspect ratio hack (using padding-bottom = width).
   position: relative;
@@ -275,61 +195,4 @@ section.results {
     }
   }
 
-}
-
-// Cart and Menu
-
-.js-qty, .ajaxcart__qty {
-  position: relative;
-  /*margin-bottom: 1em;*/
-  max-width: 70px;
-  /*min-width: 75px;*/
-  width: 75px;
-  overflow: visible;
-  backface-visibility: hidden;
-}
-.js-qty__adjust, .ajaxcart__qty-adjust {
-  cursor: pointer;
-  position: absolute;
-  display: block;
-  top: -1px;
-  bottom: -1px;
-  border: 0 none;
-  background: none;
-  text-align: center;
-  overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.js-qty__adjust--minus, .ajaxcart__qty--minus {
-  left: 0;
-}
-.js-qty__adjust--plus, .ajaxcart__qty--plus {
-  right: 0;
-}
-.js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
-  /*background: -webkit-linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
-  /*background: linear-gradient(#F6F7F9, #E8E9EB) top repeat;*/
-  background-color: #ebebeb;
-  font-weight: bold;
-}
-.js-qty input[type="text"], .ajaxcart__qty input[type="text"] {
-  display: block;
-  text-align: center;
-  width: 100%;
-  padding: 5px 25px;
-  margin: 0;
-  border-color: #8D8F93;
-}
-
-#content-menu .img-responsive {
-  display: block;
-  max-width: 120px;
-  height: auto;
-  max-height: 80px;
-
-  margin-right: 8px;
 }
