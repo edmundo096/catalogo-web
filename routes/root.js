@@ -3,8 +3,5 @@
  */
 
 exports.root = function(req, res) {
-  res.render('index', {
-    routes: { root: 'active' },
-    sess : req.session
-  });
+  res.render('index');
 };
