@@ -9,6 +9,7 @@ var app = express();
 
 // App settings.
 app.set('view engine', 'ejs');
+app.set('projectRootPath', __dirname);
 app.set('viewsDir', __dirname + '/views');
 
 // Set middleware.
@@ -21,12 +22,11 @@ app.use(express.static('public'));
 
 // Routing.
 var routeRoot       = require('./routes/root');
-
-//var apiRouter       = require('./routes/api');
+var apiRouter       = require('./routes/api');
 
 app.get('/', routeRoot.root);
 
-//app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 
 
 // Config and launch.
