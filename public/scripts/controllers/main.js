@@ -10,13 +10,27 @@
  * Controller of the catalogoWebApp
  */
 angular.module('catalogoWebApp')
-  .controller('MainController', ['$location', function ($location) {
+  .controller('MainController', ['$http', function ($http) {
     var ctrl = this;
 
-    this.text = 'Hello';
 
-    this.foo = function() {
-      ctrl.text = 'World';
-    }
+    /**
+     * Load app main data.
+     * TODO move to object in factory, with upload (post function).
+     */
+    this.loadData = function() {
+
+      $http.get('/api/data').then(
+        function successCallback(response) {
+        ctrl.json = response.data;
+      },
+        function errorCallback(response) {
+          ctrl.json = 'Error from server in AJAX request.';
+      });
+
+    };
+
+    // Execute data load.
+    this.loadData();
 
   }]);
