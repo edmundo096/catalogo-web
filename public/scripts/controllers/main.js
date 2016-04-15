@@ -10,27 +10,30 @@
  * Controller of the catalogoWebApp
  */
 angular.module('catalogoWebApp')
-  .controller('MainController', ['$http', function ($http) {
+  .controller('MainController', ['JsonContainer', function (JsonContainer) {
+
+
     var ctrl = this;
 
 
-    /**
-     * Load app main data.
-     * TODO move to object in factory, with upload (post function).
-     */
-    this.loadData = function() {
+    var jsonContainer = new JsonContainer();
 
-      $http.get('/api/data').then(
-        function successCallback(response) {
-        ctrl.json = response.data;
+    // Load app main data.
+    jsonContainer.makeAjaxRequest().then(
+      function success(value) {
+        ctrl.categories = value.data;
+
+        console.log(value.data);
       },
-        function errorCallback(response) {
-          ctrl.json = 'Error from server in AJAX request.';
-      });
+      function error(reason) {
+        alert(reason);
+      }
+    );
 
-    };
 
-    // Execute data load.
-    this.loadData();
+    // Update the selected movie object.
+    this.showDescriptionOf = function(movie) {
+      this.movie = movie;
+    }
 
   }]);
