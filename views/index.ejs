@@ -43,7 +43,7 @@
             <a class="movie-thumb col-xs-4"
                ng-repeat="movie in category.content"
                ng-click="mainCtrl.showDescriptionOf(movie)">
-              {{movie.name}}
+              <div ng-bind-html="movie.img"></div>
             </a>
 
           </div>
@@ -55,7 +55,7 @@
 
   <!-- Description -->
   <section class="col-sm-6">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">{{mainCtrl.movie.name || '◀ Seleccione una película'}}</h3>
       </div>
@@ -66,6 +66,7 @@
         <!--<p>Texto</p> -->
 
       </div>
+
     </div>
   </section><!-- /Description -->
 
