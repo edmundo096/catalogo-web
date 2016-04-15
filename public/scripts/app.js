@@ -12,6 +12,5 @@
  */
 angular
   .module('catalogoWebApp', [
-    'ngAnimate',
     'ngSanitize'
   ]);
