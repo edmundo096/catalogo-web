@@ -31,15 +31,18 @@
 
       <div class="panel panel-default" ng-repeat="category in mainCtrl.categories">
         <div class="panel-heading" role="tab">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <a role="button" data-toggle="collapse"
+             data-parent="#accordion" ng-href="#collapse{{category.name}}"
+             aria-expanded="true" aria-controls="collapseOne">
             Género {{category.name}}
           </a>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="{{'collapse'+category.name}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
 
             <a class="movie-thumb col-xs-4"
-               ng-repeat="movie in category.content" ng-click="mainCtrl.showDescriptionOf(movie)">
+               ng-repeat="movie in category.content"
+               ng-click="mainCtrl.showDescriptionOf(movie)">
               {{movie.name}}
             </a>
 
@@ -54,14 +57,13 @@
   <section class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Colección de datos {{mainCtrl.movie.name}}</h3>
+        <h3 class="panel-title">{{mainCtrl.movie.name || '◀ Seleccione una película'}}</h3>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" ng-bind-html="mainCtrl.movie.content_html">
 
-        {{mainCtrl.movie.content_html}}
-        <h3>Película</h3>
-        <img src="" alt="">
-        <p>Texto</p>
+        <!--<h3>Película</h3>-->
+        <!--<img src="" alt="">-->
+        <!--<p>Texto</p> -->
 
       </div>
     </div>

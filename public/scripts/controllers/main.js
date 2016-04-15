@@ -22,8 +22,6 @@ angular.module('catalogoWebApp')
     jsonContainer.makeAjaxRequest().then(
       function success(value) {
         ctrl.categories = value.data;
-
-        console.log(value.data);
       },
       function error(reason) {
         alert(reason);
