@@ -37,13 +37,16 @@
             Género {{category.name}}
           </a>
         </div>
+
         <div id="{{'collapse'+category.name}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
 
             <a class="movie-thumb col-xs-4"
                ng-repeat="movie in category.content"
                ng-click="mainCtrl.showDescriptionOf(movie)">
-              <div ng-bind-html="movie.img"></div>
+
+              <img ng-src="{{movie.img}}" alt="{{movie.name}}" width="160px">
+
             </a>
 
           </div>
