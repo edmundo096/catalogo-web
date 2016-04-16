@@ -14,6 +14,13 @@ La interfaz de la aplicación consistirá en una pantalla principal en donde se 
 4. Crear lógica (controladores) front-end en AngularJS.
 5. Crear contenido para la aplicación.
 
+# Instalación y ejecución:
+1. Instalar [Node.js][https://nodejs.org].
+2. Ejecutar web app con `node app.js`.
+3. **Desarrollo**: instalar (usando [`npm`](https://nodejs.org)) y 
+   utilizar compilador de estilos [`gulp`](http://gulpjs.com/) y el administrador de dependencias [`bower`](http://bower.io/) (dentro de */public*).
+
+
 ## Participantes en el proyecto:
-Edmundo Elizondo
+Edmundo Elizondo,
 Luis Guardado Cantú
