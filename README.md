@@ -1,5 +1,5 @@
 # Catalogo web
-Proyecto Web de la materia de Conceptos Orientados a Objetos.
+Proyecto Web de la materia de Conceptos Orientados a Objetos. (**Demo http://catalogo-web.herokuapp.com/**)
 
 El proyecto consistirá en el desarrollo de una aplicación web cuya función será mostrar un catálogo de alguna temática o producto seleccionado. En este proyecto se utilizarán películas como contenido.
 
