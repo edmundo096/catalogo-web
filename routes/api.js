@@ -5,8 +5,6 @@
 var express = require('express');
 var router = express.Router();
 
-var bodyParser = require('body-parser').urlencoded({ extended: false });
-
 router.route('/data')
   .get(function(req, res) {
     "use strict";
