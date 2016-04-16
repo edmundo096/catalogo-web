@@ -15,7 +15,7 @@ La interfaz de la aplicación consistirá en una pantalla principal en donde se 
 5. Crear contenido para la aplicación.
 
 # Instalación y ejecución:
-1. Instalar [Node.js][https://nodejs.org].
+1. Instalar [Node.js](https://nodejs.org).
 2. Instalar depenencias de Node.js con `npm install`.
 2. Ejecutar web app con `node app.js`.
 3. **Desarrollo**: instalar (usando [`npm`](https://nodejs.org)) y 
@@ -25,3 +25,5 @@ La interfaz de la aplicación consistirá en una pantalla principal en donde se 
 ## Participantes en el proyecto:
 Edmundo Elizondo,
 Luis Guardado Cantú
+
+*Saturday, April 15, 2016*
